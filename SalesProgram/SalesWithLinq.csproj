@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\Master.cs" />
     <Compile Include="DAL\db.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,6 +107,12 @@
     <Compile Include="Forms\frm_ProductCategory.Designer.cs">
       <DependentUpon>frm_ProductCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm_ProductList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_ProductList.Designer.cs">
+      <DependentUpon>frm_ProductList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frm_Stores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_ProductCategory.resx">
       <DependentUpon>frm_ProductCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_ProductList.resx">
+      <DependentUpon>frm_ProductList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_Stores.resx">
       <DependentUpon>frm_Stores.cs</DependentUpon>

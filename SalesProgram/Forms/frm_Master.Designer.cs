@@ -179,14 +179,14 @@ namespace SalesWithLinq.Forms
 
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar1;
-        private DevExpress.XtraBars.BarButtonItem btn_Save;
-        private DevExpress.XtraBars.BarButtonItem btn_New;
-        private DevExpress.XtraBars.BarButtonItem btn_Delete;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        public DevExpress.XtraBars.BarButtonItem btn_Save;
+        public DevExpress.XtraBars.BarButtonItem btn_New;
+        public DevExpress.XtraBars.BarButtonItem btn_Delete;
     }
 }
