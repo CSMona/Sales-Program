@@ -1,7 +1,7 @@
 ﻿
 namespace SalesWithLinq.Forms
 {
-    partial class frm_ProductList
+    partial class frm_CustomerVendorList
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,6 @@ namespace SalesWithLinq.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_ProductList));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -42,8 +41,8 @@ namespace SalesWithLinq.Forms
             this.gridControl1.Location = new System.Drawing.Point(0, 45);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(512, 276);
-            this.gridControl1.TabIndex = 4;
+            this.gridControl1.Size = new System.Drawing.Size(569, 262);
+            this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
@@ -52,16 +51,15 @@ namespace SalesWithLinq.Forms
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             // 
-            // frm_ProductList
+            // frm_CustomerVendorList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(512, 343);
+            this.ClientSize = new System.Drawing.Size(569, 329);
             this.Controls.Add(this.gridControl1);
-            this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("frm_ProductList.IconOptions.SvgImage")));
-            this.Name = "frm_ProductList";
-            this.Text = "قائمه الاصناف";
-            this.Load += new System.EventHandler(this.frm_ProductList_Load);
+            this.Name = "frm_CustomerVendorList";
+            this.Text = "frm_CustomerVendorList";
+            this.Load += new System.EventHandler(this.frm_CustomerVendorList_Load);
             this.Controls.SetChildIndex(this.gridControl1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

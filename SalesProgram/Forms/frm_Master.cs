@@ -14,7 +14,7 @@ namespace SalesWithLinq.Forms
     public partial class frm_Master : DevExpress.XtraEditors.XtraForm
     {
         
-        public string ErrorText { get {
+        public static string ErrorText { get {
                 return "هذا الحقل مطلوب"; 
             } }
         public frm_Master()
@@ -48,10 +48,16 @@ namespace SalesWithLinq.Forms
         {
 
         }
+        public virtual bool IsDataValide()
+        {
+            return true;
+        }
 
         private void btn_Save_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Save();
+            if(IsDataValide())
+                Save();
+           
         }
 
         private void btn_New_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -68,7 +74,7 @@ namespace SalesWithLinq.Forms
         {
             if (e.KeyCode == Keys.F1)
             {
-                Save();
+                btn_Save.PerformClick();
             }
             if (e.KeyCode == Keys.F2)
             {

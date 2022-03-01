@@ -193,3 +193,6 @@ F:\C#_net\برنامج مبيعاتLinq\SalesProgram\SalesProgramClone\SalesProg
 F:\C#_net\برنامج مبيعاتLinq\SalesProgram\SalesProgramClone\SalesProgram\obj\Debug\SalesWithLinq.exe
 F:\C#_net\برنامج مبيعاتLinq\SalesProgram\SalesProgramClone\SalesProgram\obj\Debug\SalesWithLinq.pdb
 F:\C#_net\برنامج مبيعاتLinq\SalesProgram\SalesProgramClone\SalesProgram\obj\Debug\SalesWithLinq.Forms.frm_ProductList.resources
+F:\C#_net\برنامج مبيعاتLinq\SalesProgram\SalesProgramClone\SalesProgram\obj\Debug\SalesWithLinq.Forms.frm_CustomerVendorList.resources
+F:\C#_net\برنامج مبيعاتLinq\SalesProgram\SalesProgramClone\SalesProgram\obj\Debug\SalesWithLinq.Forms.frm_DrawerList.resources
+F:\C#_net\برنامج مبيعاتLinq\SalesProgram\SalesProgramClone\SalesProgram\obj\Debug\SalesWithLinq.Forms.frm_Invoice.resources

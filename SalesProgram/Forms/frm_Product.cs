@@ -12,6 +12,8 @@ using System.Drawing.Imaging;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.Grid;
 using static SalesWithLinq.Class.Master;
+using System.Collections.ObjectModel;
+using DevExpress.XtraEditors;
 
 namespace SalesWithLinq.Forms
 {
@@ -40,6 +42,7 @@ namespace SalesWithLinq.Forms
             {
                 product = db.Products.Single(x => x.ID == id);
             }
+            this.Text = string.Format("بيانات صنف :{0}", product.Name);
             GetDate();
         }
         public override void New()
@@ -48,11 +51,18 @@ namespace SalesWithLinq.Forms
             {
                 Code = GetNewProductCode()
             };
-            
-            base.New();
-            var data = gridView1.DataSource as BindingList<DAL.ProductUntit>;
             var db = new DAL.dbDataContext();
-            if (db.UnitNames.Count()==0)
+            var categ = db.ProductCategories
+                    .Where(x => db.ProductCategories.Where(w => w.ProductID == x.ID).Count() == 0).FirstOrDefault();
+
+            if (categ != null)
+                product.CategoryID = categ.ID;
+
+            base.New();
+            this.Text = "اضافه  صنف جديد";
+            var data = gridView1.DataSource as BindingList<DAL.ProductUntit>;
+       
+                 if (db.UnitNames.Count()==0)
             {
                 db.UnitNames.InsertOnSubmit(new DAL.UnitName() { Name = "قطعه" });
                 db.SubmitChanges();
@@ -68,7 +78,10 @@ namespace SalesWithLinq.Forms
             lkp_Type.EditValue = product.Type;
             memoEdit1.Text = product.Description;
             checkEdit1.Checked = product.IsActive;
-
+            if (pictureEdit1.Image != null)
+                pictureEdit1.Image = GetImageFromByteArray(product.Image.ToArray());
+            else
+                pictureEdit1.Image = null;
             gridControl1.DataSource = sdb.ProductUntits.Where(x => x.ProductID == product.ID);
             base.GetDate();
         }
@@ -84,7 +97,7 @@ namespace SalesWithLinq.Forms
         }
         bool ValidiateDate()
         {
-            if (lkp_Category.EditValue is int == false)
+            if (lkp_Category.EditValue is int == false||Convert.ToInt32(lkp_Category.EditValue)<=0)
             {
                 lkp_Category.ErrorText = ErrorText;
                 return false;
@@ -144,6 +157,7 @@ namespace SalesWithLinq.Forms
             }
             sdb.SubmitChanges();
             base.Save();
+            this.Text = string.Format("{0}:بيانات صنف", product.Name);
         }
 
         Byte[] GetByteFromImage(Image image)
@@ -160,6 +174,19 @@ namespace SalesWithLinq.Forms
                     return stream.ToArray();
                 }
             }
+        }
+
+        Image GetImageFromByteArray(Byte[]ByteArray)
+        {
+            Image img;
+            try
+            {
+                Byte[] imgbyte = ByteArray;
+                MemoryStream stream = new MemoryStream(imgbyte, false);
+                img = Image.FromStream(stream);
+            }
+            catch { img = null; }
+            return img;
         }
         public override void RefreshDate()
         {
@@ -217,7 +244,33 @@ namespace SalesWithLinq.Forms
             gridView1.ValidateRow += GridView1_ValidateRow;
             gridView1.InvalidRowException += GridView1_InvalidRowException;
             gridView1.FocusedRowChanged += GridView1_FocusedRowChanged;
+            gridView1.CustomRowCellEditForEditing += GridView1_CustomRowCellEditForEditing;
 
+
+        }
+
+        private void GridView1_CustomRowCellEditForEditing(object sender, CustomRowCellEditEventArgs e)
+        {
+            if (e.Column.FieldName==nameof(ins.UnitID))
+            {
+                var ids = ((Collection<DAL.ProductUntit>)gridView1.DataSource).Select(x => x.UnitID).ToList();
+                RepositoryItemLookUpEdit repo = new RepositoryItemLookUpEdit();
+                using (var db=new DAL.dbDataContext())
+                {
+                    var currentID = (Int32?)e.CellValue;
+                    ids.Remove(currentID??0);
+                    repo.DataSource = db.UnitNames.Where(x => ids.Contains(x.ID) == false).ToList();
+                    repo.ValueMember = "ID";
+                    repo.DisplayMember = "Name";
+                    repo.PopulateColumns();
+                    repo.Columns["ID"].Visible = false;
+                    repo.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+                    repo.ProcessNewValue += ReoUOM_ProcessNewValue;
+                    e.RepositoryItem = repo;
+
+                   
+                }
+            }
         }
 
         private void GridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -269,6 +322,7 @@ namespace SalesWithLinq.Forms
                     db.SubmitChanges();
                 }
                 ((List<DAL.UnitName>)reoUOM.DataSource).Add(newObject);
+                ((List<DAL.UnitName>)(((LookUpEdit)sender).Properties.DataSource)).Add(newObject);
                 e.Handled = true;
             }
         }

@@ -19,7 +19,21 @@ namespace SalesWithLinq.Forms
             InitializeComponent();
             New();
         }
+        public frm_Drawer(int id)
+        {
+            InitializeComponent();
+            LoadDrawer(id);
+          
+        }
 
+        void LoadDrawer(int id)
+        {
+            using (var db=new DAL.dbDataContext())
+            {
+                drawer = db.Drawers.Single(x => x.ID == id);
+                GetDate();
+            }
+        }
         public override void New()
         {
             drawer = new DAL.Drawer();
@@ -27,31 +41,33 @@ namespace SalesWithLinq.Forms
         }
         public override void GetDate()
         {
-            الاسم.Text = drawer.Name;
+            txt_Name.Text = drawer.Name;
             base.GetDate();
+           
         }
 
         public override void Save()
         {
-            if (textEdit1.Text.Trim() == string.Empty)
+            if (txt_Name.Text.Trim() == string.Empty)
             {
-                textEdit1.ErrorText = "الرجاء ادخال اسم الخزنه";
+                txt_Name.ErrorText = "الرجاء ادخال اسم الخزنه";
                 return;
             }
             var db = new DAL.dbDataContext();//new store
             DAL.Account account;
-            if (drawer.ID == 0)
+            if (drawer.ID ==0)
             {
                 account = new DAL.Account();
                 db.Drawers.InsertOnSubmit(drawer);
                 db.Accounts.InsertOnSubmit(account);
-            }
                
+            }
+           
             else//store aready exist in database
             {
                 db.Drawers.Attach(drawer);
 
-                account = db.Accounts.Where(s => s.ID == drawer.AccountID).First();
+                account = db.Accounts.Single(s => s.ID == drawer.AccountID);
             }
 
             SetDate();
@@ -65,7 +81,7 @@ namespace SalesWithLinq.Forms
 
         public override void SetDate()
         {
-            drawer.Name = textEdit1.Text;
+            drawer.Name = txt_Name.Text;
             base.SetDate();
         }
     }

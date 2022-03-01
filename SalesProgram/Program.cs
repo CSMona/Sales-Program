@@ -26,9 +26,12 @@ namespace SalesWithLinq
             //OpenFormByName("frm_Stores");
             //OpenFormByName("frm_StoresList");
             //OpenFormByName("frm_Drawer");
-            Application.Run(new frm_Main());
+            //Application.Run(new frm_Main());
             //Application.Run(new frm_ProductCategory());
             //Application.Run(new frm_CustomerVendor(true));
+            //Application.Run(new frm_Invoice());
+
+            Application.Run(new frm_ProductList());
 
         }
 

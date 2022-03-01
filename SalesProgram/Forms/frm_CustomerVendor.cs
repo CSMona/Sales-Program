@@ -21,7 +21,21 @@ namespace SalesWithLinq.Forms
             IsCustomer = isCustomer;
             New();
         }
+        public frm_CustomerVendor(int id)
+        {
+            InitializeComponent();
+            LoadObject(id);
+        }
+        void LoadObject(int id)
+        {
+            using (var db = new DAL.dbDataContext())
+            {
+                CusVen = db.CustomersAndVendors.Single(x => x.ID == id);
+                IsCustomer = CusVen.IsCustomer;
+                GetDate();
+            }
 
+        }
         private void frm_CustomerVendor_Load(object sender, EventArgs e)
         {
             this.Text = (IsCustomer) ? "عميل" : "مورد";

@@ -1,4 +1,5 @@
-﻿using SalesWithLinq.Class;
+﻿using DevExpress.XtraGrid.Views.Grid;
+using SalesWithLinq.Class;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,6 +27,31 @@ namespace SalesWithLinq.Forms
             gridView1.DoubleClick += GridView1_DoubleClick;
             RefreshDate();
             gridView1.CustomColumnDisplayText += GridView1_CustomColumnDisplayText;
+            gridControl1.ViewRegistered += GridControl1_ViewRegistered;
+            gridView1.OptionsDetail.ShowDetailTabs = false;
+
+        }
+
+        public override void New()
+        {
+            var frm = new frm_Product();
+            frm.ShowDialog();
+            RefreshDate();
+        }
+        private void GridControl1_ViewRegistered(object sender, DevExpress.XtraGrid.ViewOperationEventArgs e)
+        {
+            if (e.View.LevelName== "UOM")
+            {
+                GridView view = e.View as GridView;
+                view.OptionsView.ShowViewCaption = true;
+                view.ViewCaption = "وحدات القياس";
+                view.Columns["unitName"].Caption = "اسم الوحده";
+                view.Columns["Flactor"].Caption = "المعامل";
+                view.Columns["SellPrice"].Caption = "سعر البيع";
+                view.Columns["BuyPrice"].Caption = "سعر الشراء";
+                view.Columns["Barcode"].Caption = "الباركود";
+               
+            }
         }
 
         private void GridView1_DoubleClick(object sender, EventArgs e)
@@ -52,7 +78,7 @@ namespace SalesWithLinq.Forms
             base.RefreshDate();
             using (var db = new DAL.dbDataContext())
             {
-                var data = from pr in db.Products
+                var data = from pr in Session.products
                            join cg in db.ProductCategories on pr.CategoryID equals cg.ID
                            select new
                            {
@@ -83,7 +109,15 @@ namespace SalesWithLinq.Forms
                                //u.Barcode,
                                //}).ToList(),
                            };
-                gridControl1.DataSource = data;
+                gridControl1.DataSource = data.ToList();
+                var ins = data.FirstOrDefault();
+                gridView1.Columns[nameof(ins.CategoryName)].Caption = "الفئه";
+                gridView1.Columns[nameof(ins.Code)].Caption = "الكود";
+                gridView1.Columns[nameof(ins.Description)].Caption = "الوصف";
+                gridView1.Columns[nameof(ins.IsActive)].Caption = "نشط";
+                gridView1.Columns[nameof(ins.Name)].Caption = "الاسم";
+                gridView1.Columns[nameof(ins.Type)].Caption = "النوع";
+                gridView1.Columns[nameof(ins.ID)].Visible = false;
             }
 
         }

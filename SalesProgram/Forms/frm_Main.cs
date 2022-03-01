@@ -34,39 +34,44 @@ namespace SalesWithLinq.Forms
         public static void OpenFormByName(string name)
         {
             Form frm=null;
-            if (name == "frm_Vendor")
+            switch (name)
             {
-                frm = new frm_CustomerVendor(false);
-                
+                case "frm_Vendor":
+                    frm = new frm_CustomerVendor(false);
+                    break;
+                case "frm_Customer":
+                    frm = new frm_CustomerVendor(true);
+                    break;
+                case "frm_VendorList":
+                    frm = new frm_CustomerVendorList(false);
+                    break;
+                case "frm_CustomerList":
+                    frm = new frm_CustomerVendorList(true);
+                    break;
+                default:
+                    var ins = Assembly.GetExecutingAssembly().GetTypes().FirstOrDefault(x => x.Name == name);
+                    if (ins != null)
+                    {
+                        frm = Activator.CreateInstance(ins) as Form;
+                        if (Application.OpenForms[frm.Name] != null)
+                        {
+                            frm = Application.OpenForms[frm.Name];
+                        }
+                        else
+                        {
+                            frm.Show();
+                        }
+                        frm.BringToFront();
+                    }
+                    break;
             }
-            if (name == "frm_Customer")
-            {
-                frm = new frm_CustomerVendor(true);
-                
-            }
+
+
             if (frm != null)
             {
                 frm.Show();
-                return;
             }
-            else
-            {
-                var ins = Assembly.GetExecutingAssembly().GetTypes().FirstOrDefault(x => x.Name == name);
-                if (ins != null)
-                {
-                    frm = Activator.CreateInstance(ins) as Form;
-                    if (Application.OpenForms[frm.Name] != null)
-                    {
-                        frm = Application.OpenForms[frm.Name];
-                    }
-                    else
-                    {
-                        frm.Show();
-                    }
-                    frm.BringToFront();
-                }
-
-            }
+            
 
         }
 

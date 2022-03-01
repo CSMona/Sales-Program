@@ -24,7 +24,7 @@ namespace SalesWithLinq.Forms
 
             gridView1.OptionsBehavior.Editable = false;
             gridView1.Columns["ID"].Visible = false;
-            gridView1.Columns["ID"].Caption = "الاسم";
+            gridView1.Columns["Name"].Caption = "الاسم";
             gridView1.DoubleClick += GridView1_DoubleClick;
 
         }

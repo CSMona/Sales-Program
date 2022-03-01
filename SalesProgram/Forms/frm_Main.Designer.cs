@@ -32,21 +32,25 @@ namespace SalesWithLinq.Forms
             this.components = new System.ComponentModel.Container();
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
-            this.accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ace_CompanyInfo = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement13 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.frm_Customer = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement15 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement11 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.frm_Vendor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement14 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement4 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.ace_CompanyInfo = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.frm_Customer = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.frm_Vendor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.frm_ProductCategory = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement7 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement8 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement9 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement10 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement12 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
-            this.accordionControlElement9 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -64,10 +68,11 @@ namespace SalesWithLinq.Forms
             // 
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElement5,
-            this.frm_Customer,
-            this.frm_Vendor,
-            this.frm_ProductCategory,
+            this.ace_CompanyInfo,
+            this.accordionControlElement13,
+            this.accordionControlElement11,
+            this.accordionControlElement4,
+            this.accordionControlElement10,
             this.accordionControlElement6});
             this.accordionControl1.Location = new System.Drawing.Point(0, 31);
             this.accordionControl1.Name = "accordionControl1";
@@ -76,15 +81,57 @@ namespace SalesWithLinq.Forms
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
-            // accordionControlElement5
+            // ace_CompanyInfo
             // 
-            this.accordionControlElement5.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElement4,
-            this.accordionControlElement2,
-            this.ace_CompanyInfo});
-            this.accordionControlElement5.Expanded = true;
-            this.accordionControlElement5.Name = "accordionControlElement5";
-            this.accordionControlElement5.Text = "تعريف البيانات";
+            this.ace_CompanyInfo.Name = "ace_CompanyInfo";
+            this.ace_CompanyInfo.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ace_CompanyInfo.Tag = "frm_CompanyInfo";
+            this.ace_CompanyInfo.Text = "بيانات الشركه";
+            // 
+            // accordionControlElement13
+            // 
+            this.accordionControlElement13.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.frm_Customer,
+            this.accordionControlElement15});
+            this.accordionControlElement13.Expanded = true;
+            this.accordionControlElement13.Name = "accordionControlElement13";
+            this.accordionControlElement13.Text = "العملاء";
+            // 
+            // frm_Customer
+            // 
+            this.frm_Customer.Name = "frm_Customer";
+            this.frm_Customer.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.frm_Customer.Tag = "frm_Customer";
+            this.frm_Customer.Text = "اضافه عميل";
+            // 
+            // accordionControlElement15
+            // 
+            this.accordionControlElement15.Name = "accordionControlElement15";
+            this.accordionControlElement15.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement15.Tag = "frm_CustomerList";
+            this.accordionControlElement15.Text = "قائمه العملاء";
+            // 
+            // accordionControlElement11
+            // 
+            this.accordionControlElement11.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.frm_Vendor,
+            this.accordionControlElement14});
+            this.accordionControlElement11.Name = "accordionControlElement11";
+            this.accordionControlElement11.Text = "الموردين";
+            // 
+            // frm_Vendor
+            // 
+            this.frm_Vendor.Name = "frm_Vendor";
+            this.frm_Vendor.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.frm_Vendor.Tag = "frm_Vendor";
+            this.frm_Vendor.Text = "اضافه مورد";
+            // 
+            // accordionControlElement14
+            // 
+            this.accordionControlElement14.Name = "accordionControlElement14";
+            this.accordionControlElement14.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement14.Tag = "frm_VendorList";
+            this.accordionControlElement14.Text = "قائمه الموردين";
             // 
             // accordionControlElement4
             // 
@@ -108,48 +155,12 @@ namespace SalesWithLinq.Forms
             this.accordionControlElement3.Tag = "frm_StoresList";
             this.accordionControlElement3.Text = "قائمه الافرع/المخازن";
             // 
-            // accordionControlElement2
-            // 
-            this.accordionControlElement2.Name = "accordionControlElement2";
-            this.accordionControlElement2.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement2.Tag = "frm_Drawer";
-            this.accordionControlElement2.Text = "اضافه خزنه";
-            // 
-            // ace_CompanyInfo
-            // 
-            this.ace_CompanyInfo.Name = "ace_CompanyInfo";
-            this.ace_CompanyInfo.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ace_CompanyInfo.Tag = "frm_CompanyInfo";
-            this.ace_CompanyInfo.Text = "بيانات الشركه";
-            // 
-            // frm_Customer
-            // 
-            this.frm_Customer.Name = "frm_Customer";
-            this.frm_Customer.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.frm_Customer.Tag = "frm_Customer";
-            this.frm_Customer.Text = "اضافه عميل";
-            // 
-            // frm_Vendor
-            // 
-            this.frm_Vendor.Name = "frm_Vendor";
-            this.frm_Vendor.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.frm_Vendor.Tag = "frm_Vendor";
-            this.frm_Vendor.Text = "اضافه مورد";
-            // 
-            // frm_ProductCategory
-            // 
-            this.frm_ProductCategory.Name = "frm_ProductCategory";
-            this.frm_ProductCategory.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.frm_ProductCategory.Tag = "frm_ProductCategory";
-            this.frm_ProductCategory.Text = "مجموعات الاصناف";
-            // 
             // accordionControlElement6
             // 
             this.accordionControlElement6.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement7,
             this.accordionControlElement8,
             this.accordionControlElement9});
-            this.accordionControlElement6.Expanded = true;
             this.accordionControlElement6.Name = "accordionControlElement6";
             this.accordionControlElement6.Text = "الاصناف";
             // 
@@ -167,6 +178,35 @@ namespace SalesWithLinq.Forms
             this.accordionControlElement8.Tag = "frm_ProductCategory";
             this.accordionControlElement8.Text = "مجموعات الاصناف";
             // 
+            // accordionControlElement9
+            // 
+            this.accordionControlElement9.Name = "accordionControlElement9";
+            this.accordionControlElement9.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement9.Tag = "frm_ProductList";
+            this.accordionControlElement9.Text = "قائمه الاصناف";
+            // 
+            // accordionControlElement10
+            // 
+            this.accordionControlElement10.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.accordionControlElement2,
+            this.accordionControlElement12});
+            this.accordionControlElement10.Name = "accordionControlElement10";
+            this.accordionControlElement10.Text = "الخزن";
+            // 
+            // accordionControlElement2
+            // 
+            this.accordionControlElement2.Name = "accordionControlElement2";
+            this.accordionControlElement2.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement2.Tag = "frm_Drawer";
+            this.accordionControlElement2.Text = "اضافه خزنه";
+            // 
+            // accordionControlElement12
+            // 
+            this.accordionControlElement12.Name = "accordionControlElement12";
+            this.accordionControlElement12.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement12.Tag = "frm_DrawerList";
+            this.accordionControlElement12.Text = "قائمه الخزن";
+            // 
             // fluentDesignFormControl1
             // 
             this.fluentDesignFormControl1.FluentDesignForm = this;
@@ -180,13 +220,6 @@ namespace SalesWithLinq.Forms
             // fluentFormDefaultManager1
             // 
             this.fluentFormDefaultManager1.Form = this;
-            // 
-            // accordionControlElement9
-            // 
-            this.accordionControlElement9.Name = "accordionControlElement9";
-            this.accordionControlElement9.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement9.Tag = "frm_ProductList";
-            this.accordionControlElement9.Text = "قائمه الاصناف";
             // 
             // frm_Main
             // 
@@ -216,7 +249,6 @@ namespace SalesWithLinq.Forms
         private DevExpress.XtraBars.Navigation.AccordionControl accordionControl1;
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl fluentDesignFormControl1;
         private DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager fluentFormDefaultManager1;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement5;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement4;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement3;
@@ -224,10 +256,15 @@ namespace SalesWithLinq.Forms
         private DevExpress.XtraBars.Navigation.AccordionControlElement ace_CompanyInfo;
         private DevExpress.XtraBars.Navigation.AccordionControlElement frm_Customer;
         private DevExpress.XtraBars.Navigation.AccordionControlElement frm_Vendor;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement frm_ProductCategory;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement6;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement7;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement8;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement9;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement10;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement12;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement13;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement15;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement11;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement14;
     }
 }
